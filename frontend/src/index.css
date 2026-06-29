@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@theme {
+  --color-primary: #6B8EAD; /* Soft, muted slate blue from the buttons */
+  --color-secondary: #f4eee6; /* Soft cream fallback */
+  --color-accent: #C3B091; /* Warm beige/peach accent */
+  --color-dark: #3F3A34; /* Dark warm brown for text */
+  --color-light: rgba(255, 255, 255, 0.6);
+  --font-sans: "Inter", sans-serif;
+  --animate-fade-in: fadeIn 0.5s ease-out;
+  --animate-slide-up: slideUp 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes customMarquee {
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+
+@layer base {
+  body {
+    @apply text-dark font-sans antialiased;
+    background: radial-gradient(circle at top left, #FDFBF7 0%, #F5EBE1 40%, #E6D2BF 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-4 py-2 rounded-lg font-medium transition-all hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#3F3A34] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 active:scale-95 border-2 border-dark shadow-[2px_2px_0px_0px_#3F3A34];
+  }
+  .input-field {
+    @apply w-full px-4 py-2 border-2 border-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all bg-white shadow-[2px_2px_0px_0px_#3F3A34] focus:shadow-[4px_4px_0px_0px_#3F3A34];
+  }
+  .card {
+    @apply bg-white rounded-2xl transition-all duration-300 overflow-hidden border-2 border-dark shadow-[4px_4px_0px_0px_#3F3A34] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_#3F3A34];
+  }
+  .neo-outline {
+    @apply border-2 border-dark shadow-[2px_2px_0px_0px_#3F3A34];
+  }
+}
