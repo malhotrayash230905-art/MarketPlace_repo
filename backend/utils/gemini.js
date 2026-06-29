@@ -44,7 +44,7 @@ async function urlToGenerativePart(imageUrl) {
 
 async function generateDescription(title, imageUrl) {
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
     const prompt = `Write a compelling, professional, and concise product description for an item titled "${title}". Focus on its utility for a college student. Describe the visual details of the product from the image provided. Return only the description text.`;
     
     const imagePart = await urlToGenerativePart(imageUrl);
@@ -59,7 +59,7 @@ async function generateDescription(title, imageUrl) {
 
 async function verifyItemImage(title, imageUrl) {
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
     const prompt = `Does the image clearly show a product that matches the title "${title}"? Is the image quality acceptable and not blurry? Answer with ONLY "VALID" or "INVALID".`;
     
     const imagePart = await urlToGenerativePart(imageUrl);
